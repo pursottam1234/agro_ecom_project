@@ -10,3 +10,18 @@ class Blogs(models.Model):
     
     def __str__(self):
         return self.title
+    
+class Problem(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    image=models.ImageField(upload_to='problem',blank=True,null=True)
+    posted_by = models.ForeignKey('auth.User', on_delete=models.CASCADE) 
+    posted_at = models.DateTimeField(auto_now_add= True)   #time of posting the problem
+    
+
+class Comment(models.Model):
+    problem = models.ForeignKey(Problem, on_delete=models.CASCADE, related_name='comments')
+    comment_text = models.TextField()
+    commented_by = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    commented_at = models.DateTimeField(auto_now_add=True)
+       

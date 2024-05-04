@@ -7,14 +7,20 @@
 <br>
 <br>
 <br>
-<br>
-<h1 class="text-2xl">Login</h1>
+<br><br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 bg-light p-4 rounded">
+<h1 class=" mb-4">Login</h1>
 
 <form method="post" action=".">
     {% csrf_token %}
 
     {{ form.as_p }}
 
-    <button class="py-4 px-8 bg-teal-800 text-white">Login</button>
+    <button class="btn btn-primary btn-block mt-3">Login</button>
 </form>
+</div>
+</div>
+</div>
 {% endblock %}

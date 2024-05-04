@@ -33,6 +33,8 @@ SESSION_COOKIE_AGE = 86400
 LOGIN_REDIRECT_URL = 'myaccount'
 # LOGOUT_REDIRECT_URL = 'frontpage'
 
+# AUTH_USER_MODEL = 'vendors.Userprofile'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
 

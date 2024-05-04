@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.db.models import Q, Count
+from django.http import HttpResponse
 
 from .cart import Cart
 from .forms import OrderForm
@@ -44,6 +45,7 @@ def remove_from_cart(request, product_id):
     cart.remove(product_id)
 
     return redirect('cart_view')
+    #return  HttpResponse('Product added to the cart' + str(product_id))
 
 def cart_view(request):
     cart = Cart(request)

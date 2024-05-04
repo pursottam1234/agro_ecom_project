@@ -20,15 +20,32 @@ def vendor_detail(request, pk):
         'user': user
     })
     
+# @login_required
+# def my_store(request):
+#     products = request.user.products.exclude(status=Product.DELETED)
+#     order_items = OrderItem.objects.filter(product__user=request.user)
+    
+#     return render(request, 'vendor/my_store.html', {
+#         'products': products,
+#         'order_items': order_items
+#     }) 
 @login_required
 def my_store(request):
-    products = request.user.products.exclude(status=Product.DELETED)
-    order_items = OrderItem.objects.filter(product__user=request.user)
+    # Check if the user is a vendor
+    user_profile = get_object_or_404(Userprofile, user=request.user)
+    if not user_profile.is_vendor:
+        messages.error(request, "You are not authorized to view this page.")
+        return redirect('../shop')
+
+    # If the user is a vendor, proceed to display their products and orders
+    products = Product.objects.filter(user=request.user, user__userprofile__is_vendor=True).exclude(status=Product.DELETED)
+    order_items = OrderItem.objects.filter(product__user=request.user, product__user__userprofile__is_vendor=True)
     
     return render(request, 'vendor/my_store.html', {
         'products': products,
         'order_items': order_items
     }) 
+
     
 
 @login_required
