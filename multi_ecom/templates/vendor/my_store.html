@@ -27,7 +27,7 @@
             </div>
         {% endfor %}
     </div> {% endcomment %}
-{% endif %}
+
 
     <h2 class="h3 mb-3">My orders</h2>
 
@@ -80,7 +80,7 @@
                             {% endif %}
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.title }}</h5>
-                                <p class="card-text">${{ product.get_display_price }}</p>
+                                <p class="card-text">Rs.{{ product.get_display_price }}</p>
                                 <p class="card-text"><strong>Status: </strong>{{ product.get_status_display }}</p>
                             </div>
                         </a>

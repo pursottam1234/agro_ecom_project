@@ -14,7 +14,7 @@
                 <div class="tab-class text-center">
                     <div class="row g-4">
                         <div class="col-lg-4 text-start">
-                            <h1>Our Organic Products</h1>
+                            <h1 class="text-secondary">Our Organic Products</h1>
                         </div>
                         <div class="col-lg-8 text-end">
                             <ul class="nav nav-pills d-inline-flex text-center mb-5">
@@ -22,8 +22,6 @@
                                     <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
                                         <span class="text-dark" style="width: 130px;">All Products</span>
                                     </a>
-                                </li>
-                                  
                                 </li>
                             </ul>
                         </div>
@@ -45,7 +43,7 @@
                                                     <h4>{{ product.title }}</h4></a>
                                                     <p>{{ product.description}}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">Rs: {{ product.get_display_price }} / Kg
+                                                        <p class="text-dark fs-5 fw-bold mb-0">Rs.: {{ product.get_display_price }} /Kg
                                                         - <a href=" {% url 'vendor_detail' product.user.id %}">{% firstof product.user.get_full_name product.user.username %}</a>
                                                         </p>
                                                         <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
@@ -64,39 +62,35 @@
         </div>
         <!-- Fruits Shop End-->
 
-<br>
-<br>
-<br>
-<br>
 
+  <div id="details">
+    <div class="detail">
+        <h1>{{ product.title }}</h1>
+        <p>{{ product.description }}</p>
+        <a href=" {% url 'vendor_detail' product.user.id %}">{% firstof product.user.get_full_name product.user.username %}</a></br>
+        <img src="{{ product.product_image.url }}" alt="{{ product.title }}">
+        <p>Price: Rs.{{ product.price }}</p>
 
+        {% comment %} {% if product.categories.all %}
+        <h2>Categories:</h2>
+        <ul>
+            {% for category in product.categories.all %}
+            <li>{{ category.title }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
-  <h1>{{ product.title }}</h1>
-  <p>{{ product.description }}</p>
-  <p>Price: ${{ product.price }}</p>
-  <a href=" {% url 'vendor_detail' product.user.id %}">{% firstof product.user.get_full_name product.user.username %}</a>
-  <img src="{{ product.product_image.url }}" alt="{{ product.title }}">
-
-  {% if product.categories.all %}
-    <h2>Categories:</h2>
-    <ul>
-      {% for category in product.categories.all %}
-        <li>{{ category.title }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
-  {% if product.related_products.all %}
-    <h2>Related Products:</h2>
-    <ul>
-      {% for related_product in product.related_products.all %}
-        <li><a href="{% url 'product_detail' category_slug=related_product.category.slug slug=related_product.slug %}">{{ related_product.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
- <a href="{% url 'add_to_cart' product.id %}" class="inline-block bx-8 py-4 bg-teal-500 text-white">Add to Cart</a>
-
-
+        {% if product.related_products.all %}
+        <h2>Related Products:</h2>
+        <ul>
+            {% for related_product in product.related_products.all %}
+            <li><a href="{% url 'product_detail' category_slug=related_product.category.slug slug=related_product.slug %}">{{ related_product.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endcomment %}
+        <a href="{% url 'add_to_cart' product.id %}" class="cart">Add to Cart</a>
+    </div>
+  </div>
 
 
                 

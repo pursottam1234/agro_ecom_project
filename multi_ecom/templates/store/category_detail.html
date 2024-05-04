@@ -41,7 +41,7 @@
                             <h4>{{ product.title }}</h4></a>
                            
                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">Rs: {{ product.get_display_price }} / Kg</p>
+                                <p class="text-dark fs-5 fw-bold mb-0">Rs: {{ product.get_display_price }} /Kg</p>
                                 <a href="{% url 'add_to_cart' product.id %}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                             </div>
                         </div>
