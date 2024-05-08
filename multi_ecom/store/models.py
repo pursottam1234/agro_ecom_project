@@ -6,7 +6,7 @@ import datetime,os
 from django.core.files import File
 
 from io import BytesIO
-from PIL import Image
+# from PIL import Image
 
 
 def get_file_path(request,filename):
