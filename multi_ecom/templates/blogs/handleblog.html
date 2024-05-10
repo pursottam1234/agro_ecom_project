@@ -5,11 +5,11 @@
 
 {% block content %}
 <br><br><br><br><br><br><br><br><br><br>
-<section id="services" class="services">
+{% comment %} <section id="services" class="services">
     <div class="container">
 
       <div class="section-title">
-        <h2>Welcome to Smart Krishi News</h2>
+        <h2 style="color: green;">Welcome to Smart Krishi News</h2>
         </div>
 <hr>
       <div class="row">
@@ -20,7 +20,7 @@
         <img src="{{post.img.url}}" class="img-fluid" alt="no-image" style="width:800px; height:100px; object-fit: cover;">
         </div>
         <br>
-          <div class="icon"><i class="bi bi-briefcase"></i></div>
+          <div class="icon text-primary"><i class="bi bi-briefcase"></i></div>
           <h4 class="title"><a href="">{{post.title}}</a></h4>
           <p class="description">{{post.description}}</p>
           <h6>Posted By : <b>{{post.authname}}</b></h6>
@@ -31,6 +31,36 @@
 
       </div>
     </div>
-  </section>
+  </section> 
+  {% endcomment %}
+
+
+
+  <section id="services" class="services" style="background-color: #f8f9fa; padding: 50px 0;">
+    <div class="container">
+
+        <div class="section-title">
+            <h2 style="color: #28a745;">Welcome to our Smart कृषि News</h2>
+        </div>
+        <hr style="border-color: #28a745;">
+        <div class="row">
+            {% for post in posts reversed %}
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                <div class="card border-0 shadow">
+                    <img src="{{ post.img.url }}" class="card-img-top" alt="no-image" style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <div class="icon text-primary"><i class="bi bi-briefcase"></i></div>
+                        <h4 class="card-title"><a href="#" style="color: orange;">{{ post.title }}</a></h4>
+                        <p class="card-text" style="color: #666;">{{ post.description }}</p>
+                        <p class="card-text">Posted By: <b>{{ post.authname }}</b></p>
+                        <p class="card-text">Posted on: <b>{{ post.timeStamp }}</b></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
   <br><br><br><br><br><br><br><br><br><br>
 {% endblock content %}

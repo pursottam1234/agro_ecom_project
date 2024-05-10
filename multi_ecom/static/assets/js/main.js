@@ -149,3 +149,48 @@
 
 })(jQuery);
 
+
+
+
+
+// start signup/login page
+document.addEventListener('DOMContentLoaded', function () {
+    const signupForm = document.getElementById('signup-form');
+    const loginForm = document.getElementById('login-form');
+    const signupLink = document.getElementById('signup-link');
+    const logoutContainer = document.getElementById('logout-container');
+    const logoutButton = document.getElementById('logout-button');
+
+    signupLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        signupForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+        logoutContainer.classList.add('hidden');
+    });
+
+    signupForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Implement signup logic here
+        alert('Signup logic will be implemented here');
+    });
+
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Implement login logic here
+        alert('Login logic will be implemented here');
+        // Once logged in, show the logout button
+        logoutContainer.classList.remove('hidden');
+        signupForm.classList.add('hidden');
+        loginForm.classList.add('hidden');
+    });
+
+    logoutButton.addEventListener('click', function () {
+        // Implement logout logic here
+        alert('Logout logic will be implemented here');
+        // After logout, show the login form
+        loginForm.classList.remove('hidden');
+        logoutContainer.classList.add('hidden');
+    });
+});
+
+// end signup/login page
