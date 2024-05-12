@@ -11,12 +11,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6 bg-light p-4 rounded">
-            <h1 class="mb-4">Sign up</h1>
+            <h1 class="mb-4" style="color: green;">Registration</h1>
             <form method="post" action=".">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="btn btn-primary btn-block mt-3">Sign up</button>
+                <button class="btn btn-primary btn-block mt-3">Sign Up</button>
             </form>
+            <br>
+            <p>already have an account?</p>
+      <button class="btn btn-primary btn-block mt-3"><a href="{% url 'login' %}" type="submit" style="color: black; justify-content: right;">Login</a></button>
         </div>
     </div>
 </div>

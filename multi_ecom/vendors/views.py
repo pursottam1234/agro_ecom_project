@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -136,4 +136,10 @@ def signup(request):
     
     return render(request, 'vendor/signup.html', {
         'form': form
-    })    
+    })
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    return redirect('frontpage')
+    

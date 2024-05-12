@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
-{% block title %}Shop {% endblock title %}
+{% block title %}Shop{% endblock title %}
 
 {% block content%}
 <br><br><br><br><br><br>
@@ -21,7 +21,7 @@
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="mb-3">
-                                    <h4>Categories</h4>
+                                    <h4 style="color: orange;">Categories</h4>
                                     <ul class="list-unstyled fruite-categorie">
                                         {% for category in categories_with_product_count %}
                                         <li>
@@ -84,14 +84,14 @@
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img" style="height:130px;">
                                                 <a href="{% url 'product_detail' product.category.slug product.slug %}">
-                                                <img src="{{ product.product_image.url }}" class="img-fluid w-100 rounded-top" alt="">
+                                                <img src="{{ product.product_image.url }}" class="img-fluid w-100 h-100 rounded-top" style="object-fit: cover;" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{product.category}}</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>{{ product.title }}</h4></a>
                                                
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">Rs: {{ product.get_display_price }} /Kg</p>
+                                                    <p class="text-dark fs-5 fw-bold mb-0">Rs: {{ product.get_display_price }}/Kg</p>
                                                     <a href="{% url 'add_to_cart' product.id %}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                 </div>
                                             </div>

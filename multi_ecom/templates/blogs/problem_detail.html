@@ -1,15 +1,15 @@
 {% extends 'core/base.html' %} 
 {% load static %} 
-{% block title %} Blog {% endblock title %} 
+{% block title %} Comment {% endblock title %} 
 {% block hero %} {% endblock hero%}  
 
 {% block content %}
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 <section id="services" class="services">
    
     <div class="container mt-5">
       <div class="section-title">
-        <h2>Share your Solution of Krishi Problem Here.</h2>
+        <h2 style="color: green;">Share your Solution of <span style="color: orange;">कृषि</span> Problem Here</h2>
         </div>
 <hr>
 <div class="row">
@@ -17,7 +17,7 @@
         <h2>{{ problem.title }}</h2>
         <p>{{ problem.description }}</p>
         {% if problem.image %}
-        <img src="{{ problem.image.url }}" alt="Problem Image">
+        <img style="width:200px; height: 200px; object-fit: cover; border-radius: 10px; box-shadow: 7px 5px 5px rgb(69, 69, 69);" src="{{ problem.image.url }}" alt="Problem Image">
         {% endif %}
 
     <h3>Comments:</h3>
@@ -31,7 +31,7 @@
     <form method="post">
         {% csrf_token %}
         {{ comment_form.as_p }}
-        <button type="submit">Post Comment</button>
+        <button class="btn btn-primary btn-block mt-3">Post Comment</button>
     </form>
     {% else %}
     <p>You cannot comment on your own problem.</p>
@@ -43,4 +43,5 @@
   </section>
   <br><br><br><br><br><br><br><br><br><br>
 {% endblock content %}
+
 

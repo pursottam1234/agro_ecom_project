@@ -11,14 +11,14 @@
 <br>
 <br>
 <br>
-    <h1 class="text-2xl">{{ title }}</h1>
+    <h1 class="text-2xl" style="color: green;">{{ title }}</h1>
 
     <form method="post" action="." enctype="multipart/form-data" class="space-y-5">
         {% csrf_token %}
 
         {{ form.as_p }}
 
-        <button class="py-4 px-8 bg-teal-500 text-white hover:bg-teal-800">Submit</button>
+        <button class="btn btn-primary btn-block mt-3">Submit</button>
     </form>
 
     {% if product %}

@@ -1,28 +1,48 @@
-{% extends 'core/base.html' %} 
-{% load static %} 
-{% block title %} Blog {% endblock title %} 
-{% block hero %} {% endblock hero%}  
-
+{% extends 'core/base.html' %} {% load static %} 
+{% block title %}Comment{%endblock title %} 
+{% block hero %} {% endblock hero%} 
 {% block content %}
-<br><br><br><br><br><br><br><br><br><br>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Share your Krishi Problem Here.</h2>
-        </div>
-<hr>
-      <div class="row">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Post Problem</button>
+  <div class="container">
+    <div class="section-title">
+      <h2 style="color: green">
+        Share your <span style="color: orange">कृषि</span> Problem Here.
+      </h2>
+    </div>
+    <hr>
+    <div class="row" style="display: flex">
+      <div class="problem flex-1">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %} {{ form.as_p }}
+          <button
+            class="post-class"
+            type="submit"
+            style="
+              color: white;
+              background-color: rgb(129, 196, 8);
+              border: 1px solid rgb(129, 196, 8);
+              border-radius: 6px;
+            "
+          >
+            Post Problem
+          </button>
         </form>
-        
-        </div>
-
+        <br />
+      </div>
+      <hr />
+      <div class="problem flex-1">
+        <h2 style="color: green">All Problems:</h2>
+        <ul>
+          {% for p in problems %}
+          <li>
+            <a href="{% url 'problem_detail' pk=p.pk %}">{{ p.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
-  </section>
-  <br><br><br><br><br><br><br><br><br><br>
+  </div>
+</section>
+<br /><br /><br /><br /><br />
 {% endblock content %}

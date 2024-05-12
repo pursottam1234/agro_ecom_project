@@ -9,7 +9,10 @@
 <br>
 <br>
 <br>
-    <h1 class="text-primary">{{ category.title }}</h1><br>
+<br>
+<br>
+
+    <h1 style="color: green;">{{ category.title }}</h1><br>
 {% comment %} 
     <div class="flex flex-wrap">
         {% for product in products %}
@@ -64,7 +67,7 @@
                 <div class="rounded position-relative fruite-item" style="height:100px;">
                     <div class="fruite-img" style="height:200px;">
                         <a href="{% url 'product_detail' product.category.slug product.slug %}">
-                            <img src="{{ product.product_image.url }}" class="img-fluid w-100 h-100 rounded-top" alt="">
+                            <img src="{{ product.product_image.url }}" class="img-fluid w-100 h-100 rounded-top" style="object-fit: cover;" alt="">
                         </a>
                     </div>
                     <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{product.category}}</div>
