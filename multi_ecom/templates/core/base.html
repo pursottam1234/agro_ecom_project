@@ -137,19 +137,19 @@
               </form>
             </div>
           </div>
-
+         
           <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
             <div class="navbar-nav mx-auto">
-              <a href="/" class="nav-item nav-link active">Home</a>
+              <a href="#" class="nav-item nav-link active">Home</a>
               <a href="{% url 'shop' %}" class="nav-item nav-link">Shop</a>
               <a href="{% url 'handleblog'%}" class="nav-item nav-link">News</a>
               {% comment %}
               <a href="{% url 'post_problem'%}" class="nav-item nav-link"
                 >Problems</a
               >
-              {% endcomment %} {% comment %}
-              <a href="{% url 'about' %}" class="nav-item nav-link">About</a> {%
-              endcomment %}
+              {% endcomment %} 
+              {% comment %}
+              <a href="{% url 'about' %}" class="nav-item nav-link">About</a> {%endcomment %}
               <a href="{% url 'contact'%}" class="nav-item nav-link">Contact</a>
               {% if request.user.is_authenticated %} {% comment %}
               <a href="{% url 'myaccount' %}" class="nav-item nav-link"
@@ -159,8 +159,9 @@
               <a href="{% url 'checkout' %}" class="nav-item nav-link"
                 >Checkout</a
               >
-              {% endif %} {% if user.is_authenticated %} {% if
-              request.user.userprofile.is_vendor %}
+              {% endif %} 
+              {% if user.is_authenticated %} 
+              {% if request.user.userprofile.is_vendor %}
               <a href="{% url 'my_store' %}" class="nav-item nav-link"
                 >My store</a
               >
@@ -228,8 +229,8 @@
       </div>
     </div>
     <!-- Modal Search End -->
-    {% endcomment %} {% block hero %} {% endblock hero %} {% block content %} {%
-    endblock content %}
+    {% endcomment %} {% block hero %} {% endblock hero %} {% block content %} 
+    {%endblock content %}
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
