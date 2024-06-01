@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'vendors',
     'store',
     'blogs',
+    'weather',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,8 @@ MEDIA_URL = '/images/'
 
 #MEDIA_ROOT = BASE_DIR / 'static'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
+
+# to fetch data from weather api 
+from decouple import config
+
+API_KEY = config('API_KEY')

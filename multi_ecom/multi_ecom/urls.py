@@ -26,7 +26,7 @@ urlpatterns = [
     
     path('',include('store.urls')),
     
-    
+    path('weather/',include('weather.urls')),
    
 ]
 

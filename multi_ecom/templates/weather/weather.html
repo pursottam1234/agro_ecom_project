@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather</title>
+</head>
+<body>
+    <h1>Weather Information for Various Locations in Nepal</h1>
+    <h2>{{ weather.name }}</h2>
+    <p>Temperature: {{ weather.temperature }}°C</p>
+    <p>Description: {{ weather.description }}</p>
+
+    
+    <div>
+        {% for weather in weather_data %}
+            <h2>{{ weather.name }}</h2>
+            <p>Temperature: {{ weather.temperature }}°C</p>
+            <p>Description: {{ weather.description }}</p>
+            {% if weather.icon %}
+                <img src="https://developer.accuweather.com/sites/default/files/{{ weather.icon }}-s.png" alt="Weather icon">
+            {% else %}
+                <p>No icon available</p>
+            {% endif %}
+            <hr>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

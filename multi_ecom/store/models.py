@@ -5,8 +5,9 @@ import datetime,os
 
 from django.core.files import File
 
+from django.core.files.base import ContentFile
+from PIL import Image
 from io import BytesIO
-# from PIL import Image
 
 
 def get_file_path(request,filename):
@@ -62,6 +63,30 @@ class Product(models.Model):
     def get_display_price(self):
         return self.price
     
+    # def get_thumbnail(self):
+    #     if self.thumbnail:
+    #         return self.thumbnail.url
+    #     else:
+    #         if self.product_image:
+    #             self.thumbnail = self.make_thumbnail(self.product_image)
+    #             self.save()
+
+    #             return self.thumbnail.url
+    #         else:
+    #             return 'https://via.placeholder.com/240x240x.jpg'
+    
+    # def make_thumbnail(self, image, size=(300, 300)):
+    #     img = image.open(image)
+    #     img.convert('RGB')
+    #     img.thumbnail(size)
+
+    #     thumb_io = BytesIO()
+    #     img.save(thumb_io, 'JPEG', quality=85)
+    #     name = image.name.replace('uploads/product_images/', '')
+    #     thumbnail = File(thumb_io, name=name)
+
+    #     return thumbnail    
+
     def get_thumbnail(self):
         if self.thumbnail:
             return self.thumbnail.url
@@ -72,20 +97,19 @@ class Product(models.Model):
 
                 return self.thumbnail.url
             else:
-                return 'https://via.placeholder.com/240x240x.jpg'
-    
+                return 'https://via.placeholder.com/240x240.jpg'
+
     def make_thumbnail(self, image, size=(300, 300)):
-        img = image.open(image)
-        img.convert('RGB')
+        img = Image.open(image)
+        img = img.convert('RGB')
         img.thumbnail(size)
 
         thumb_io = BytesIO()
         img.save(thumb_io, 'JPEG', quality=85)
-        name = image.name.replace('uploads/product_images/', '')
-        thumbnail = File(thumb_io, name=name)
 
-        return thumbnail    
+        thumbnail = ContentFile(thumb_io.getvalue(), name=image.name.replace('uploads/product_images/', ''))
 
+        return thumbnail
 
 
 class Order(models.Model):

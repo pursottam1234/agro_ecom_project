@@ -77,7 +77,7 @@
           </div>
           <div class="login-icons">
             {% if request.user.is_authenticated %}
-            <p style="color: black">Welcome! {{request.user.username}}</p>
+            <p style="color: black">Welcome!{{request.user.username}}</p>
             {%else %}
             <a href="{% url 'login'%}" class="text-white"
               ><i style="color: orange" class="fas fa-user me-2"></i>Login</a
@@ -140,7 +140,7 @@
          
           <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
             <div class="navbar-nav mx-auto">
-              <a href="#" class="nav-item nav-link active">Home</a>
+              <a href="{% url 'frontpage' %}" class="nav-item nav-link active">Home</a>
               <a href="{% url 'shop' %}" class="nav-item nav-link">Shop</a>
               <a href="{% url 'handleblog'%}" class="nav-item nav-link">News</a>
               {% comment %}
@@ -331,18 +331,25 @@
             >
           </div>
           <div class="col-md-6 my-auto text-center text-md-end text-white">
-            Designed with ☕ & ❤️ by
+            Designed with ☕ & ❤️ by <a class="designer" style="color: aqua;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0px 5px;">Lean Coders</a>
+          </div>
+          <div class="coders" style="text-align: right;">
             <a
               class="border-bottom"
               target="_blank"
               href="https://www.purushottambhandari.com.np"
               >Pursottam Bhandari</a
-            >,<br /><a
+            >&nbsp;&nbsp;&nbsp;<a
               class="border-bottom"
               target="_blank"
               href="https://www.facebook.com/profile.php?id=100086716277989"
               >Dipendra Adhikari</a
-            >,
+            >&nbsp;&nbsp;&nbsp;
             <a
               class="border-bottom"
               target="_blank"
