@@ -103,7 +103,7 @@
                                         {% for product in products %}
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img" style="height: 160px;">
+                                                <div class="fruite-img" style="height: 300px;">
                                                     <a href="{% url 'product_detail' product.category.slug product.slug %}">
                                                     <img src="{{ product.product_image.url }}" class="img-fluid w-100 rounded-top" alt="#">
                                                 </div>
