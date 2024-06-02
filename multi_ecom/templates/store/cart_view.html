@@ -12,7 +12,7 @@
                 {% for item in cart %}
                     <div class="px-4 py-4 mb-2 bg-teal-100 flex items-center">
                         <div>
-                            <img src="{{ item.product.get_thumbnail }}" class="w-20">
+                            <img src="{{ item.product.get_thumbnail }}" class="w-50" style="height: 300px; object-fit: cover; border-radius: 10px;">
                         </div>
                         <p class="mb-2">
                             <b>Title: </b>{{ item.product.title }}<br>
